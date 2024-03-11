@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RickAndMorty</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/RickAndMorty.styles.css">
+    <link href="lib/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<audio id="audioPlayer" autoplay controls style="display: none;" loop>
+    <source src="extra/RYMSoundtrack.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<div class="content">
+    <div id="bg-video">
+        <img src="extra/Fondo.jpg" alt="">
+    </div>
+    <div>
+        <!-- Model data not available in static HTML -->
+        <div class="centered-image">
+            <img src="extra/Titulo2.png" alt="">
+        </div>
+        <div style="text-align:center; align-content:center;">
+            <input type="text" id="searchInput" placeholder="Buscar personaje...">
+        </div>
+
+        <ul id="characterList" style="align-content:center; align-items:center; margin-left:20%;">
+            <!-- Character data not available in static HTML -->
+            <!-- Rendered using JavaScript in dynamic environment -->
+        </ul>
+        <div id="pagination"></div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var searchInput = document.getElementById('searchInput');
+                var characterListItems = document.querySelectorAll('#characterList .character-item');
+
+                searchInput.addEventListener('input', function () {
+                    var searchTerm = searchInput.value.toLowerCase();
+                    characterListItems.forEach(function (character) {
+                        var characterName = character.querySelector('.character-name').textContent.toLowerCase();
+                        if (characterName.includes(searchTerm)) {
+                            character.style.display = 'block';
+                        } else {
+                            character.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+</div>
+    
+<div class="container">
+    <main role="main" class="pb-3">
+        <!-- RenderBody content not available in static HTML -->
+    </main>
+</div>
+
+<footer class="footer text-muted">
+    <div style="align-content:end; text-align:end; margin-right:20px; font-family:'Century Gothic';">
+        <span style="color:black;">Made by Engineermj98</span>
+    </div>
+</footer>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js"></script>
+<!-- RenderSection content not available in static HTML -->
+</body>
+</html>
