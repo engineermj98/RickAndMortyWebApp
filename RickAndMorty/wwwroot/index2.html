@@ -20,6 +20,9 @@ src: url('fonts/get_schwifty.ttf') format('truetype');
     font-weight: bold;
     align-content:center;
 }
+.hidden {
+    display: none;
+}
     </style>
 </head>
 <body>
@@ -116,22 +119,22 @@ src: url('fonts/get_schwifty.ttf') format('truetype');
 
         <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var searchInput = document.getElementById('searchInput');
-        var characterList = document.querySelectorAll('#characterList .character-name');
+    var searchInput = document.getElementById('searchInput');
+    var characterList = document.querySelectorAll('#characterList .character-item');
 
-        searchInput.addEventListener('input', function () {
-            var searchTerm = searchInput.value.trim().toLowerCase();
-            characterList.forEach(function (character) {
-                var characterName = character.textContent.trim().toLowerCase();
-                var li = character.closest('li'); // Obtener el elemento <li> padre
-                if (characterName.includes(searchTerm)) {
-                    li.style.display = 'block';
-                } else {
-                    li.style.display = 'none';
-                }
-            });
+    searchInput.addEventListener('input', function () {
+        var searchTerm = searchInput.value.trim().toLowerCase();
+        characterList.forEach(function (character) {
+            var characterName = character.querySelector('.character-name').textContent.trim().toLowerCase();
+            var li = character.closest('li');
+            if (characterName.includes(searchTerm)) {
+                li.classList.remove('hidden');
+            } else {
+                li.classList.add('hidden');
+            }
         });
     });
+});
 </script>
     </div>
 </div>
