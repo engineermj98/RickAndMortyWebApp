@@ -38,7 +38,7 @@ src: url('fonts/get_schwifty.ttf') format('truetype');
             <img src="extra/Titulo2.png" alt="">
         </div>
         <div style="text-align:center; align-content:center;">
-            <input type="text" id="searchInput" placeholder="Buscar personaje...">
+            <input type="text" id="searchInput" placeholder="Buscar personaje..." oninput="filterCharacters()">
         </div>
 
         <ul id="characterList" style="align-content:center; align-items:center; margin-left:20%;">
@@ -115,12 +115,10 @@ src: url('fonts/get_schwifty.ttf') format('truetype');
         </script>
 
         <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var searchInput = document.getElementById('searchInput');
-        var characterList = document.querySelectorAll('#characterList .character-name');
+        function filterCharacters() {
+            var searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+            var characterList = document.querySelectorAll('#characterList .character-name');
 
-        searchInput.addEventListener('input', function () {
-            var searchTerm = searchInput.value.trim().toLowerCase();
             characterList.forEach(function (character) {
                 var characterName = character.textContent.trim().toLowerCase();
                 var li = character.closest('li'); // Obtener el elemento <li> padre
@@ -130,9 +128,8 @@ src: url('fonts/get_schwifty.ttf') format('truetype');
                     li.style.display = 'none';
                 }
             });
-        });
-    });
-</script>
+        }
+    </script>
     </div>
 </div>
     
