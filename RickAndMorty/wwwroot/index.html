@@ -8,8 +8,25 @@
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="RickAndMorty.styles.css" />
     <link href="lib/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+        .footer {
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
+    <div class="content">
     <video autoplay muted loop id="bg-video">
         <source src="extra/rickandmortyscape.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -22,7 +39,7 @@
         </audio>
     </div>
 
-    <div class="content">
+    
         <div class="centered-image">
             <img src="extra/RickAndMortyTitle.png" alt="">
         </div>
@@ -32,20 +49,13 @@
         <img src="extra/Viajar2.png" alt="" class="blink">
     </a>
         </div>
-    </div>
-
-    <div class="container">
-        <main role="main" class="pb-3">
-            <!-- Contenido dinámico podría ir aquí -->
-        </main>
-    </div>
-
-    <footer class="footer text-muted">
+    
+    <footer class="footer" style="margin-top: 27%;">
         <div style="text-align: right; margin-right: 20px; font-family: 'Century Gothic';">
             <span>Made by Engineermj98</span>
         </div>
     </footer>
-
+</div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
